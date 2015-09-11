@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function drupalcamp_form_commerce_checkout_form_complete_alter(&$form, $form_state, $form_id) {
+  $encoding = 'QRCODE';
+  $barcode_value = commerce_order_get_properties($form_state['order'], array('absolute' => TRUE), 'view_url');
+  $form['barcode_image'] = array(
+    '#markup' => theme('barcode_image', array('barcode_value' => $barcode_value, 'encoding' => $encoding, 'height' => 400)),
+  );
+}

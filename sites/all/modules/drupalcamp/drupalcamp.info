@@ -1,0 +1,3 @@
+name = DrupalCamp
+description = Custom module for drupal camp Taipei 2015.
+core = 7.x
